@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}AI Tutor - Chatbot{% endblock %}
+{% block content %}
+<h2>Ask Our AI Tutor</h2>
+<form method="POST" autocomplete="off" class="form-chatbot">
+    <label for="question">Enter your question:</label><br />
+    <input type="text" name="question" id="question" required value="{{ request.form.get('question', '') }}" />
+    <button type="submit" class="btn">Ask</button>
+</form>
+
+  {% if answer %}
+<h3>Answer:</h3>
+<p class="answer">{{ answer }}</p>
+  {% endif %}
+{% endblock %}

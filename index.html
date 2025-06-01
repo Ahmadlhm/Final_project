@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}AI Learning Platform - Home{% endblock %}
+
+{% block content %}
+
+<!-- 🌟 Hero Intro Section -->
+<section class="hero-intro">
+    <h1>
+        🧪 AI Learning Platform <br>
+        <span>Chemistry Edition</span>
+    </h1>
+    <p>
+        Welcome to your personal AI-powered chemistry companion! This platform leverages advanced natural language models to help you generate quizzes, build custom study plans, get instant answers, and simplify even the most complex chemistry concepts.
+    </p>
+    <p>
+        Whether you're studying for an exam, reviewing a topic, or just exploring science, our intelligent assistant is here to adapt to your pace and help you succeed — beautifully and efficiently.
+    </p>
+</section>
+
+<!-- 🔍 Feature 1 -->
+<div class="section" id="quiz">
+    <h2>Difficulty & Weakness Detection</h2>
+    <p>Take AI-generated quizzes that analyze your performance and adjust difficulty dynamically while identifying areas for improvement.</p>
+    <button class="btn" onclick="location.href='{{ url_for('quiz') }}'">Start Quiz</button>
+</div>
+
+<!-- 🗓️ Feature 2 -->
+<div class="section" id="study-plan">
+    <h2>Generate a Study Plan</h2>
+    <p>Create a personalized learning schedule that keeps you on track and helps you retain more, all while staying organized and consistent.</p>
+    <button class="btn" onclick="location.href='{{ url_for('schedule') }}'">Create Plan</button>
+</div>
+ 
+<!-- 🧠 Feature 3 -->
+<div class="section" id="ai-tutor">
+    <h2>Interactive AI Tutor</h2>
+    <p>Ask questions anytime. Get clear, step-by-step explanations with contextual examples, diagrams, and walkthroughs.</p>
+    <button class="btn" onclick="location.href='{{ url_for('chatbot') }}'">Talk to Tutor</button>
+</div>
+
+<div class="section">
+    <h2>Smart Content Adaptation</h2>
+    <p>Coming soon: convert lectures into simplified formats.</p>
+</div>
+
+
+{% endblock %}

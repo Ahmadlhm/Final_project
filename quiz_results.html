@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Quiz Results{% endblock %}
+{% block content %}
+<h2>Quiz Results</h2>
+  {% for res in results %}
+<div class="question-block">
+    <p><strong>Q{{ loop.index }}: {{ res.question }}</strong></p>
+    {% for opt in res.options %}
+    <p>
+        {{ 'ABCD'[loop.index0] }}. {{ opt }}
+        {% if 'ABCD'[loop.index0] == res.correct_ans %}
+        <strong>(Correct)</strong>
+        {% endif %}
+    </p>
+    {% endfor %}
+    <p>
+        Your Answer: {{ res.user_ans }} —
+        {% if res.is_correct %}
+        <span class="correct-answer">✅ Correct!</span>
+        {% else %}
+        <span class="incorrect-answer">❌ Incorrect</span>
+        {% endif %}
+    </p>
+</div>
+<hr />
+  {% endfor %}
+
+  {% if wrong_topics %}
+<h3>Suggested Topics to Review</h3>
+<ul>
+    {% for topic in wrong_topics %}
+    <li><a href="https://www.khanacademy.org/search?page_search_query={{ topic | replace(' ', '+') }}" target="_blank">{{ topic }}</a></li>
+    {% endfor %}
+</ul>
+  {% else %}
+<p>🎉 Excellent! No weaknesses detected.</p>
+  {% endif %}
+
+<button class="btn" onclick="location.href='{{ url_for('quiz') }}'">Take Another Quiz</button>
+{% endblock %}
